@@ -8,7 +8,6 @@
         </div>
         <div v-if="expenses">
             <div v-for="filter in expenses" :key="filter.name" class="flex items-center space-x-2">
-
                 <span>{{ filter.name }}</span>
             </div>
         </div>
