@@ -1,10 +1,5 @@
+import type { UserData } from '@/types/User';
 import { ref, watch } from 'vue';
-
-interface UserData {
-  name: string;
-  income: number;
-  goal: string;
-}
 
 const storedData = localStorage.getItem('userData');
 const userData = ref<UserData>(

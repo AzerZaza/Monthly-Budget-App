@@ -1,22 +1,17 @@
 <template>
-    <div class="flex flex-col flex-1 justify-center items-center">
-        <h1 class="text-2xl font-bold">Monthly <span class="text-green-500">Budget</span></h1>
-        <form @submit.prevent="handleSubmit" class="flex flex-col gap-8 w-8/12">
-
-            <input id="income" v-model="form.income" type="number" placeholder="'Insert Your Income'" required
-                class="input text-center px-2 py-4 border-b border-white" />
-
-
-            <input id="name" v-model.number="form.name" type="text" placeholder="Insert your name" min="0" required
-                class="input text-center px-2 py-4 border-b border-white" />
-
-
-            <input id="goal" v-model="form.goal" type="text" placeholder="Insert Your Goals" required
-                class="input text-center px-2 py-4 border-b border-white" />
-
-            <button type="submit" class="bg-yellow-100 cursor-pointer rounded-md text-black p-2">
+    <div class="flex flex-col gap-8 flex-1 justify-center items-center">
+        <span class="text-6xl"><span class="text-box-color-light">Monthly</span> <span
+                class="text-compl-opt-2">Budget</span></span>
+        <form @submit.prevent="handleSubmit" class="flex flex-col gap-12 w-8/12">
+            <div class="flex flex-col gap-2">
+                <Input id="income" v-model.number="form.income" type="number" placeholder="Insert Your Income" required />
+                <Input id="name" v-model.number="form.name" type="text" placeholder="Insert your name" min="0"
+                    required />
+                <Input id="goal" v-model.number="form.goal" type="number" placeholder="Insert Your Goals" required />
+            </div>
+            <Button>
                 Start Your Calculation
-            </button>
+            </Button>
         </form>
     </div>
 
@@ -26,14 +21,20 @@
 import { useUserData } from '@/composables/useUserData';
 import { onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import Button from './ui/Button.vue';
+import Input from './ui/Input.vue';
 
 const router = useRouter();
 const { setUserData, userData } = useUserData();
 
-const form = reactive({
+const form = reactive<{
+    name: string;
+    income: number | null;
+    goal: number | null;
+}>({
     name: '',
-    income: 0,
-    goal: ''
+    income: null,
+    goal: null,
 });
 
 onMounted(() => {

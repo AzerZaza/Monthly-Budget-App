@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --color-main-dark-base: #1e1e1e;
+  --color-main-dark-main-20: #a3a3a3;
+  --color-main-dark-main-10: #b2b2b2;
+  --color-compl-opt-1: #ffe600;
+  --color-compl-opt-2: #51d289;
+  --color-box-color-light: #fffde7;
+  --color-card-light: #fbfbfb;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -28,7 +47,6 @@ body {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-color: #1e1e1e;
 }
 
 @media (prefers-color-scheme: light) {
