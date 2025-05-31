@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-full flex items-center">
-        <select v-model="selectedName" @change="updateSelectedCategory" :class="[
+        <select v-model="selectedName" @change="updateSelectedCategory" required :class="[
             'appearance-none w-full text-3xl text-center px-2 py-4 border-b-2 focus:outline-none border-white bg-transparent',
             selectedName === '' && 'text-main-dark-main-20']">
             <option class="text-gray-400" disabled hidden value="">Category</option>
