@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col gap-4 h-full">
+    <div class="flex flex-col gap-4 px-2 xl:px-0 h-full">
         <div class="flex flex-col gap-6 w-full p-2">
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center text-sm sm:text-base">
                 <span class="text-compl-opt-1">Description</span>
                 <div class="flex items-center border border-compl-opt-1 rounded-md p-2">
                     <span class="font-bold">Filter expenses |</span>
@@ -22,8 +22,8 @@
                 @edit="triggerEdit(expense)" @delete="deleteSelectedExpense(expense.id)" />
         </div>
 
-        <div v-else class="flex justify-center items-center flex-col gap-8 w-full h-full">
-            <div class="text-box-color-light text-4xl font-bold">
+        <div v-else class="flex justify-center items-center flex-col gap-4 xl:gap-8 w-full h-full">
+            <div class="text-box-color-light text-2xl sm:text-3xl xl:text-4xl font-bold">
                 Looks Like You Haven't <span class="flex gap-2">Added Any
                     <span class="text-compl-opt-2">Expenses Yet.</span>
                 </span>

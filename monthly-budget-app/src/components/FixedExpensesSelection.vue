@@ -1,5 +1,5 @@
 <template>
-    <div v-if="userData" class="flex flex-col gap-6 w-full max-w-96 bg-card-light p-8 rounded">
+    <div class="flex flex-col gap-6 w-full max-w-96 h-full bg-card-light p-6 xl:p-8 rounded">
         <span class="text-3xl text-main-dark-base">Optionals</span>
         <div class="border-t-2 border-dotted border-main-dark-main-10" />
         <div class="flex flex-col gap-8 bg-box-color-light p-3 rounded">
@@ -18,13 +18,13 @@
         <div class="border-t-2 border-dotted border-main-dark-main-10" />
         <div class="flex flex-col gap-4">
             <span class="text-3xl text-black">Goals</span>
-            <div class="border-l-5 border-compl-opt-2 text-left pl-2 text-sm text-black font-semibold line-clamp-3"> {{
-                userData.goal
+            <div
+                class="border-l-5 break-all border-compl-opt-2 text-left pl-2 text-sm text-black font-semibold line-clamp-3">
+                {{
+                    userData.goal
                 }}</div>
         </div>
     </div>
-
-    <p v-else class="text-center text-gray-500 mt-10">No user data available.</p>
 </template>
 
 <script lang="ts" setup>

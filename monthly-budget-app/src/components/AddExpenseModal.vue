@@ -1,7 +1,12 @@
 <template>
     <div>
-        <Button @click="openNewExpenseModal">
+        <Button @click="openNewExpenseModal" class="hidden sm:block">
             New Expense
+        </Button>
+
+        <Button @click="openNewExpenseModal"
+            class="sm:hidden w-12 h-12 rounded-full flex items-center justify-center">
+            +
         </Button>
 
         <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center">

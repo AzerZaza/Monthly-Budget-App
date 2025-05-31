@@ -1,5 +1,5 @@
 <template>
-    <div v-if="userData" class="flex flex-col gap-6 w-full max-w-96 bg-card-light p-8 rounded">
+    <div class="flex flex-col relative gap-6 w-full max-w-96 h-full bg-card-light p-6 pb-12 sm:pb-8 xl:p-8  rounded">
         <span class="text-3xl text-main-dark-base">Calculation</span>
         <div class="border-t-2 border-dotted border-main-dark-main-10" />
         <div class="flex flex-col gap-1 bg-box-color-light p-3 rounded">
@@ -19,14 +19,15 @@
         </div>
         <div class="border-t-2 border-dotted border-main-dark-main-10" />
         <Button @click="clearExpenses">Reset Expenses</Button>
+        <AddExpenseModal class="absolute sm:hidden -right-3 -bottom-3"/>
     </div>
-    <p v-else class="text-center text-gray-500 mt-10">No user data available.</p>
 </template>
 
 <script lang="ts" setup>
 import { useExpenses } from '@/composables/useExpenses';
 import { useUserData } from '@/composables/useUserData';
 import { computed } from 'vue';
+import AddExpenseModal from './AddExpenseModal.vue';
 import CircleLoader from './CircleLoader.vue';
 import Button from './ui/Button.vue';
 
