@@ -13,7 +13,7 @@
         <AddExpenseModal />
         <div @click="goHome" class="flex items-center gap-2 hover:underline cursor-pointer">
           <img :src="User" alt="User" />
-          {{ userData.name }}
+          Welcome {{ userData.name }}
         </div>
       </div>
     </div>

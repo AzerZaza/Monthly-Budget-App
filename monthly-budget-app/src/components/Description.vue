@@ -3,12 +3,16 @@
         <div class="flex flex-col gap-6 w-full p-2">
             <div class="flex justify-between">
                 <span class="text-compl-opt-1">Description</span>
-                <select v-model="selectedCategory" class="p-2 border rounded">
-                    <option value="">All</option>
-                    <option v-for="category in ExpensesFilters" :key="category.name" :value="category.name">
-                        {{ category.name }}
-                    </option>
-                </select>
+                <div class="flex items-center border border-compl-opt-1 rounded-md p-2">
+                    <span class="font-bold">Filter expenses |</span>
+                    <select v-model="selectedCategory" class="border-none outline-none bg-transparent font-bold">
+                        <option value="">All</option>
+                        <option v-for="category in ExpensesFilters" :key="category.name" :value="category.name">
+                            {{ category.name }}
+                        </option>
+                    </select>
+                </div>
+
             </div>
         </div>
 

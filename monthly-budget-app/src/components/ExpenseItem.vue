@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('select')" :class="[
+    <div @click.stop="onSelect" :class="[
         'flex justify-between items-center py-5 border-t-2 border-dotted',
         selected ? 'cursor-default' : 'border-main-dark-main-10 cursor-pointer',
     ]">
@@ -20,11 +20,11 @@
 
     </div>
     <div v-if="selected" class="width-full flex gap-8 justify-center items-center p-8 bg-box-color-light">
-        <button @click.stop="$emit('edit')"
+        <button @click.stop="onEdit"
             class="flex gap-1 items-center text-compl-opt-2 hover:underline text-lg font-semibold cursor-pointer" title="Edit Expense">
             <img :src="EditIcon" alt="Edit" class="w-7 h-7" /> Edit
         </button>
-        <button @click.stop="$emit('delete')" class="flex gap-1 items-center text-error hover:underline text-lg font-semibold cursor-pointer"
+        <button @click.stop="onDelete" class="flex gap-1 items-center text-error hover:underline text-lg font-semibold cursor-pointer"
             title="Delete">
             <img :src="DeleteIcon" alt="Delete" class="w-7 h-7" /> Delete
         </button>
@@ -36,6 +36,20 @@ import type { Expense } from '@/types/Expense';
 import { computed } from 'vue';
 import DeleteIcon from '../assets/icons/Delete.png';
 import EditIcon from '../assets/icons/Edit.png';
+
+const emit = defineEmits(['select', 'edit', 'delete']);
+
+function onSelect() {
+  emit('select', props.expense);
+}
+
+function onEdit() {
+  emit('edit', props.expense);
+}
+
+function onDelete() {
+  emit('delete', props.expense);
+}
 
 const props = defineProps<{
     expense: Expense;
