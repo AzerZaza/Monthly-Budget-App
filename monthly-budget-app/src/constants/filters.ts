@@ -13,3 +13,7 @@ export const ExpensesFilters = [
   { image: savingsImg, name: "Savings" },
   { image: healthImg, name: "Health" },
 ];
+
+export const CategoryImageMap = Object.fromEntries(
+  ExpensesFilters.map((item) => [item.name, item.image])
+);

@@ -1,7 +1,8 @@
+import { ExpensesKey } from "@/constants/storageKeys";
 import type { Expense } from "@/types/Expense";
 import { computed, ref, watch } from "vue";
 
-const storedExpenses = localStorage.getItem("expenses");
+const storedExpenses = localStorage.getItem(ExpensesKey);
 const expenses = ref<Expense[]>(
   storedExpenses ? JSON.parse(storedExpenses) : []
 );
@@ -9,14 +10,41 @@ const expenses = ref<Expense[]>(
 watch(
   expenses,
   (newVal) => {
-    localStorage.setItem("expenses", JSON.stringify(newVal));
+    localStorage.setItem(ExpensesKey, JSON.stringify(newVal));
   },
   { deep: true }
 );
 
+const selectedCategory = ref<string>("");
+
+const filteredExpenses = computed(() => {
+  if (!selectedCategory.value) return expenses.value;
+  return expenses.value.filter(
+    (expense) => expense.category.name === selectedCategory.value
+  );
+});
+
 export function useExpenses() {
-  const addExpense = (expense: Expense) => {
-    expenses.value = [...expenses.value, expense]; // assign new array to trigger reactivity
+  const addExpense = (expense: Omit<Expense, "id">) => {
+    const newExpense: Expense = {
+      ...expense,
+      id: crypto.randomUUID(),
+    };
+    expenses.value = [...expenses.value, newExpense];
+  };
+
+  const editExpense = (updatedExpense: Expense) => {
+    expenses.value = expenses.value.map((expense) =>
+      expense.id === updatedExpense.id
+        ? { ...expense, ...updatedExpense }
+        : expense
+    );
+  };
+
+  const deleteExpense = (expenseId: string) => {
+    expenses.value = expenses.value.filter(
+      (expense) => expense.id !== expenseId
+    );
   };
 
   const clearExpenses = () => {
@@ -32,8 +60,12 @@ export function useExpenses() {
 
   return {
     expenses,
+    filteredExpenses,
     addExpense,
+    editExpense,
+    deleteExpense,
     clearExpenses,
     totalCost,
+    selectedCategory,
   };
 }

@@ -8,6 +8,7 @@
   --color-compl-opt-2: #51d289;
   --color-box-color-light: #fffde7;
   --color-card-light: #fbfbfb;
+  --color-error: #f44336;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

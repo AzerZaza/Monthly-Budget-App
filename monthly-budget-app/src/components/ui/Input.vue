@@ -3,7 +3,7 @@
     :value="modelValue"
     @input="onInput"
     v-bind="attrs"
-    class="text-3xl text-center px-2 py-4 border-b-2 focus-visible:outline-none border-white"
+    class="text-3xl text-center px-2 py-4 border-b-2 focus-visible:outline-none border-white placeholder:text-main-dark-main-20"
   />
 </template>
 

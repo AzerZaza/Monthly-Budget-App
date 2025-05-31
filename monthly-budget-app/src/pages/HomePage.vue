@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap-8">
+    <div class="flex gap-8 pb-12 max-h-[740px]">
         <div class="flex-1">
             <Description />
         </div>

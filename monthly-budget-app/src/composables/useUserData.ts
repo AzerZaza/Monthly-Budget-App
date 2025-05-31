@@ -1,15 +1,16 @@
-import type { UserData } from '@/types/User';
-import { ref, watch } from 'vue';
+import { UserDataKey } from "@/constants/storageKeys";
+import type { UserData } from "@/types/User";
+import { ref, watch } from "vue";
 
-const storedData = localStorage.getItem('userData');
+const storedData = localStorage.getItem(UserDataKey);
 const userData = ref<UserData>(
-  storedData ? JSON.parse(storedData) : { name: '', income: 0, goal: '' }
+  storedData ? JSON.parse(storedData) : { name: "", income: 0, goal: "" }
 );
 
 watch(
   userData,
   (newVal) => {
-    localStorage.setItem('userData', JSON.stringify(newVal));
+    localStorage.setItem(UserDataKey, JSON.stringify(newVal));
   },
   { deep: true }
 );

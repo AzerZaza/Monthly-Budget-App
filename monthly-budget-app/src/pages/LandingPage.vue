@@ -1,6 +1,6 @@
 <template>
     <div class="flex gap-10 justify-center items-center">
-        <div class="flex-1 bg-box-color-light rounded-md">
+        <div class="flex-1 bg-box-color-light rounded-md hidden xl:block">
             <img class="w-full max-h-screen object-contain" :src="LandingPageImage" alt="Landing page" />
         </div>
         <LandingForm />

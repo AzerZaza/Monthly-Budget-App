@@ -19,7 +19,6 @@ const props = defineProps<Props>();
 const showImage = ref(true);
 
 function onError() {
-  // Hide image on load error fallback to letter
   showImage.value = false;
 }
 

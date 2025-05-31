@@ -11,7 +11,7 @@
       </div>
       <div class="flex items-center gap-4 overflow-hidden">
         <AddExpenseModal />
-        <div class="flex items-center gap-2">
+        <div @click="goHome" class="flex items-center gap-2 hover:underline cursor-pointer">
           <img :src="User" alt="User" />
           {{ userData.name }}
         </div>
@@ -27,8 +27,15 @@
 <script lang="ts" setup>
 import AddExpenseModal from '@/components/AddExpenseModal.vue';
 import { useUserData } from '@/composables/useUserData';
+import { useRouter } from 'vue-router';
 import MoneyOff from '../assets/MoneyOff.png';
 import User from '../assets/User.svg';
 
 const { userData } = useUserData();
+const router = useRouter();
+
+const goHome = () => {
+  router.push('/');
+};
+
 </script>
