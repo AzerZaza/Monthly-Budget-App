@@ -12,7 +12,7 @@
 
 ```bash
 git clone https://github.com/AzerZaza/Monthly-Budget-App.git
-cd your-repo
+cd monthly-budget-app
 ```
 
 ### 2. Install dependencies
